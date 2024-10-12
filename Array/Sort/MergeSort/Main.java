@@ -1,4 +1,4 @@
-package Sort.MergeSort;
+package Array.Sort.MergeSort;
 
 public class Main {
     public static void main(String[] args) {
