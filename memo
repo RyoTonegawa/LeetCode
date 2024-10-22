@@ -1,0 +1,36 @@
+package src.main.java.leetcode.array;
+
+public class GasStation {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        int totalTank = 0;      // Variable to track the total net gas across the entire journey
+        int currentTank = 0;    // Variable to track the current gas level during traversal from the current starting station
+        int startingStation = 0; // Variable to store the index of the potential starting station
+        
+        // Iterate over each gas station to calculate the total gas and determine the starting station
+        for (int i = 0; i < gas.length; i++) {
+            // In this loop, we're calculating the total available gas across all stations.
+            // We subtract the cost to reach the next station from the gas at each station.
+            // The `totalTank` tracks whether the overall journey is possible (i.e., if total gas >= total cost).
+            totalTank += gas[i] - cost[i];
+            
+            // `currentTank` tracks how much gas we have in the tank while traveling.
+            // If `currentTank` becomes negative, it means we cannot reach the next station from the current starting point.
+            currentTank += gas[i] - cost[i];
+            
+            // If at any point `currentTank` goes negative, it indicates that starting from the current station
+            // or any station before it is not feasible. Thus, we reset the starting station to `i + 1`.
+            if (currentTank < 0) {
+                // Reset the potential starting station to the next one (i + 1)
+                startingStation = i + 1;
+                
+                // Reset the `currentTank` because we're starting a new journey from the next station
+                currentTank = 0;
+            }
+        }
+        
+        // After traversing all stations, if the total amount of gas (`totalTank`) is greater than or equal to 0,
+        // it means we have enough fuel to complete the journey. In that case, we return the `startingStation`.
+        // If the total gas is less than the total cost (`totalTank < 0`), return -1 since completing the circuit is impossible.
+        return totalTank >= 0 ? startingStation : -1;
+    }
+}
