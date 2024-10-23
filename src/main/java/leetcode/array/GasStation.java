@@ -1,4 +1,4 @@
-package src.main.java.leetcode.array;
+package leetcode.array;
 
 public class GasStation {
     public int canCompleteCircuit(int[] gas, int[] cost) {
