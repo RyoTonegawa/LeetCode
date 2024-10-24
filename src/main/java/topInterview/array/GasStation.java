@@ -1,4 +1,4 @@
-package leetcode.array;
+package topInterview.array;
 
 public class GasStation {
     public int canCompleteCircuit(int[] gas, int[] cost) {

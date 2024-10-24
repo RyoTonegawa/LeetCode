@@ -1,5 +1,5 @@
 
-package leetcode.array;
+package topInterview.array;
 
 import java.util.*;
 

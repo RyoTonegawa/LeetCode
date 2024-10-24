@@ -1,4 +1,4 @@
-package leetcode.array;
+package topInterview.array;
 
 public class ProductOfArrayExceptSelf {
     public int[] productExceptSelf(int[] nums) {
