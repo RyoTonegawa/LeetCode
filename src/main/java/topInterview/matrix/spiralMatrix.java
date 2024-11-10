@@ -1,4 +1,7 @@
+package topInterview.matrix;
+
 public class spiralMatrix {
+
     public List<Integer> solution(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
 
