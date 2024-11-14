@@ -5,54 +5,43 @@ public class WordPattern{
         String pattern,
         String s
     ){
-        String[] words = s.split(" ");
-        /**
-         * Deal corner cases
-         */
-        if(
-            s.length() != words.length
-        ){
-            return false;
-        }
-        HashMap<Character,String> map = new HashMap<>();
-        HashMap<String> mappedCharacters = new HashMap<>();
+       // Split `s` into individual words
+       String[] words = s.split(" ");
 
-        //Input: pattern = "abba", s = "dog cat cat dog"
-        int startIndex = 0;
-        int endIndex = 0;
-        for(
-            int i = 0;
-            i < pattern.length();
-            i++
-        ){
-            while(s.charAt != ' '){
-                endIndex++;
-            }
-            //get single word between space
-            string word = s.substring(startIndex,endIndex);
-            if(mappedCharacters.containsKey(pattern.charAt(i))){
-                if(
-                    map.get(pattern.charAt(i)) != word
-                ){
-                    return false;
-                }
-            }else{
-                if(mappedCharacters.containsKey(word)){
-                    return false;
-                }
-                map.put(
-                    pattern.charAt(i),
-                    word
-                );
-                mappedCharacters.put(word);
-            }
-            //move endIndex to startIndex
-            //and go to next loop
-            startIndex = endIndex;
-        }
+       // Corner case: Check if lengths match
+       if (pattern.length() != words.length) {
+           return false; // Lengths don't match, so cannot have a one-to-one pattern
+       }
 
+       // HashMap to store character-to-word mapping
+       HashMap<Character, String> map = new HashMap<>();
+       // HashSet to track words that are already mapped
+       HashSet<String> mappedWords = new HashSet<>();
 
+       // Traverse each character in pattern and each word in words
+       for (int i = 0; i < pattern.length(); i++) {
+           char currentPatternChar = pattern.charAt(i);
+           String currentWord = words[i];
 
+           // If the pattern character already has a mapped word
+           if (map.containsKey(currentPatternChar)) {
+               // Check if the mapped word matches the current word
+               if (!map.get(currentPatternChar).equals(currentWord)) {
+                   return false; // Mismatch found
+               }
+           } else {
+               // If the word is already mapped to another character, return false
+               if (mappedWords.contains(currentWord)) {
+                   return false; // Word is already mapped to a different character
+               }
+
+               // Add the new character-to-word mapping
+               map.put(currentPatternChar, currentWord);
+               mappedWords.add(currentWord); // Mark the word as mapped
+           }
+       }
+
+       return true;
 
     }
 }
