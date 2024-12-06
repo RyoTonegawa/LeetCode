@@ -1,4 +1,4 @@
-package main.java.topInterview.BinaryTreeGeneral;
+package main.java.topInterview.BinaryTreeGeneral.populatingNextRightNode2;
 
 class Node {
   public int val;
