@@ -43,7 +43,7 @@ public class PopulatingNextRightPoiterinEachNode2 {
     while (current != null) {
       // traverse the current level
       while (current != null) {
-        if (current.left != null) {
+        if (current.next != null) {
           prev.next = current.left;
           /*
            * In the first iteration,

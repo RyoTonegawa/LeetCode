@@ -1,4 +1,5 @@
 {
     "editor.formatOnSave": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "java.home": "/opt/homebrew/Cellar/openjdk/23.0.1/libexec/openjdk.jdk/Contents/Home"
 }
