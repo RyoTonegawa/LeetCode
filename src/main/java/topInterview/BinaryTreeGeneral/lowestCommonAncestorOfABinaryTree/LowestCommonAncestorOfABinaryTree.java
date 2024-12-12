@@ -18,6 +18,28 @@ package main.java.topInterview.binaryTreeGeneral.lowestCommonAncestorOfABinaryTr
  * and q as descendants
  * (where we allow a node to be a descendant of itself).”
  */
+
+/**
+ *   Sample Tree
+     3
+    / \
+   5   1
+  / \ / \
+ 6  2 0  8
+   / \
+  7   4
+ */
+
+/**
+ * Key Idea
+ * LCA is the deepest node that has
+ * p and q as descendants.
+ * 
+ * In other words, the first node
+ * which fill the condition
+ * `left != null && right != null`
+ * is the LCA
+ */
 public class LowestCommonAncestorOfABinaryTree {
   public TreeNode lowestCommonAncestor(
       TreeNode root,
@@ -32,11 +54,19 @@ public class LowestCommonAncestorOfABinaryTree {
     TreeNode left = lowestCommonAncestor(root.left, p, q);
     TreeNode right = lowestCommonAncestor(root.right, p, q);
 
+    /**
+     * if following condition works,
+     * when root is lowest ancestor,
+     * left and right is not null.
+     * And if left and right is not null,
+     * the root is ancestor.
+     * This is the another way of expressing the key idea
+     */
     if (left != null && right != null) {
+      // LCA found !
       return root;
     }
-    ;
-
+    // Edge node or a node lacking either its left or right subtree
     return (left != null) ? left : right;
 
   }
