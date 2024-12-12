@@ -62,7 +62,7 @@ public class BInaryTreeRightSideView {
         if (i == levelSize - 1) {
           result.add(current.val);
         }
-
+        // Add child nodes to queue
         if (current.left != null) {
           queue.add(current.left);
         }
