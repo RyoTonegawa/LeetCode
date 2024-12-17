@@ -1,5 +1,13 @@
 # The Diffelence Of The DFS And BFS
 
+## Check If You're unsure whether it's BFS or DFS
+
+BFS is
+
+1. Queue based traversal
+2. Level-by-Level Exploration
+3. No Recursion
+
 ## DFS
 
 DFS offers an advantage when aiming to simplify
